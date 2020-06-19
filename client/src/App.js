@@ -5,7 +5,7 @@ import Login from "./components/Login";
 import "./styles.scss";
 import PrivateRoute from "./components/PrivateRoute";
 import BubblePage from "./components/BubblePage";
-import ColorList from "./components/ColorList";
+// import ColorList from "./components/ColorList";
 
 function App() {
   return (
@@ -13,17 +13,14 @@ function App() {
       <div className="App">
 
     <Switch>
-        <Route exact path="/" component={Login} />
-        {/* 
-          Build a PrivateRoute component that will 
-          display BubblePage when you're authenticated 
-        */}
-
-        <PrivateRoute 
-        path="/protected"
-        component = {BubblePage}
-         />
-</Switch>
+        <Route path="/" component={Login} />
+      
+          <PrivateRoute 
+          path="/protected"
+          component = {BubblePage}
+          />
+          
+    </Switch>
       </div>
     </Router>
   );

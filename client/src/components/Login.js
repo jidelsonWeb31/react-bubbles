@@ -37,10 +37,10 @@ const Login = () => {
   const onLogin = evt => {
     
     axiosWithAuth()
-    .post('/api/colors', loginFormValues)
+    .post('/api/login', loginFormValues)
     .then(res => {
-      window.localStorage.setItem('token', res.data.payload)
-      push('/api/login')
+      window.localStorage.setItem('token', res.data.payload);
+      push('/protected');
     })
     .catch(err =>{
       console.log(err)

@@ -28,11 +28,19 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Explain what a token is used for.
 
-
+A token is issued by the server and it is a string of cryptic text, and can be stored on the client-side using local storage. It is used because when we build our apps we most likely will have some routes that we want protected or in other words routes that will only render with authorization. For example, when a user logs in, the server will check those credentials against what's in the database and if it authenticates the user then it returns a token.
 
 - [ ] What steps can you take in your web apps to keep your data secure?
+
+There are many measures that can be taken to keep our data more secure including making a Private Route so a user must have authentication to access whatever webpage they are trying to navigate to. Also, another good example is having a timer to log out the user in case they were to leave their webpage open on accident this is a measure to help protect their data that they wish to keep safe.
+
 - [ ] Describe how web servers work.
+
+A web server processes network requests over HTTP, and the main function is storing, processing, and delivering web pages to users. So basically a user will request a webpage by clicking on a link and the server will process this request and return the user with the response they requested.
+
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+Both the Put and Delete requests are HTTP methods that can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 
 
 ## Project Set Up
