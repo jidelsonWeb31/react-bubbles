@@ -32,7 +32,7 @@ const Login = () => {
 
 
   const onLogin = evt => {
-    evt.preventDefault();
+    
     axiosWithAuth()
     .post('/api/colors', loginFormValues)
     .then(res => {
