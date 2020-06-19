@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "./utils/axiosWithAuth";
+import { useHistory } from "react-router-dom";
 
 const initialLoginFormValues = {
   username: '',
@@ -19,16 +20,18 @@ const Login = () => {
     setLoginFormValues({...loginFormValues, [name]:value})
   };
 
-  const onSubmit = evt => {
-    evt.preventDefault()
-    const newLoginUser = {
+  const { push } = useHistory();
+
+  // const onSubmit = evt => {
+  //   evt.preventDefault()
+  //   const newLoginUser = {
       
-      username: loginFormValues.username,
-      password: loginFormValues.password
-    }
-    setLoginFormValues(initialLoginFormValues)
-    setLoginUser([...loginUser, newLoginUser])   
-  };
+  //     username: loginFormValues.username,
+  //     password: loginFormValues.password
+  //   }
+  //   setLoginFormValues(initialLoginFormValues)
+  //   setLoginUser([...loginUser, newLoginUser])   
+  // };
 
 
   const onLogin = evt => {
@@ -37,15 +40,13 @@ const Login = () => {
     .post('/api/colors', loginFormValues)
     .then(res => {
       window.localStorage.setItem('token', res.data.payload)
+      push('/api/login')
     })
     .catch(err =>{
       console.log(err)
     })
   };
 
-  useEffect(() =>{
-    onLogin()
-    }, []) 
 
 
   return (
@@ -53,14 +54,15 @@ const Login = () => {
       <h1>Welcome to the Bubble App!</h1>
 
       <h2>Log In</h2>
-            <form onSubmit={onSubmit}>
+            {/* <form onSubmit={onSubmit}> */}
+            <form onSubmit={onLogin}>
 
                 <label>Username:&nbsp;
                     <input 
                     id='username'
                     name='username'
                     type='text'
-                    loginFormValues={loginFormValues.username}
+                    value={loginFormValues.username}
                     onChange={onInputChange}
                     />
                 </label>
@@ -70,7 +72,7 @@ const Login = () => {
                     id='password'
                     name='password'
                     type='text'
-                    loginFormValues={loginFormValues.password}
+                    value={loginFormValues.password}
                     onChange={onInputChange}
                     />
                 </label>

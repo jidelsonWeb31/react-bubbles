@@ -10,21 +10,12 @@ const BubblePage = () => {
   // set that data to the colorList state property
  
   const getData = evt => {
-    evt.preventDefault();
+ 
     axiosWithAuth()
-    .get('/api/colors', colorList)
+    .get('/api/colors')
     .then(res =>{
-        console.log(res)
-        setColorList({
-            
-           colorList: res.data.data.map((colorList) => {
-             return(
-               <div>
-                   <p>{colorList.username}</p>
-                   <p>{colorList.password}</p>
-               </div>
-           )})
-        })
+       
+        setColorList(res.data)
      })
     .catch(err => {
         console.log(err)

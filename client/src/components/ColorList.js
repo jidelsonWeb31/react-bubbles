@@ -30,7 +30,6 @@ const ColorList = ({ colors, updateColors }) => {
     axios
     .put(`/api/colors/${id}`, colors)
     .then(res => {
-      
       setRefresh = true;
     })
     .catch(err => console.log(err));

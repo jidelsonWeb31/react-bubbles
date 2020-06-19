@@ -12,17 +12,6 @@ function App() {
     <Router>
       <div className="App">
 
-
-
-
-        <NavLink to="/bubblepage">
-        Bubble Page
-        </NavLink>
-
-        <NavLink exact to ="/">
-          Home
-        </NavLink>
-
     <Switch>
         <Route exact path="/" component={Login} />
         {/* 
@@ -31,8 +20,8 @@ function App() {
         */}
 
         <PrivateRoute 
-        path="/bubblepage"
-        render = {() => <ColorList />}
+        path="/protected"
+        component = {BubblePage}
          />
 </Switch>
       </div>
